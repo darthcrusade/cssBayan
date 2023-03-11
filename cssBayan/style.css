@@ -1,0 +1,264 @@
+/*Common styles*/
+
+body {
+  background-color: #f5f5eb;
+  font-family: "Helvetica Neue", serif;
+}
+
+.header,
+.accordion__item-container:not(:last-child) {
+  border-bottom: 0.15rem solid #dbe0e4;
+}
+
+.title {
+  font-weight: 600;
+}
+
+.meme {
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + .meme {
+  display: block;
+}
+
+.meme__image-container {
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.5s ease;
+  height: 0;
+}
+
+.meme__title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meme__icon {
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.5s ease;
+}
+
+.meme__title {
+  filter: invert(52%) sepia(25%) saturate(4155%) hue-rotate(159deg) brightness(91%) contrast(101%);
+  transition: all 0.5s ease;
+  font-weight: 600;
+}
+
+input[type="radio"]:checked + .meme .meme__image-container {
+  opacity: 1;
+  transform: scale(1);
+}
+
+input[type="radio"]:checked + .meme .meme__title,
+input[type="radio"]:checked + .meme .meme__icon {
+  filter: invert(0%) sepia(5%) saturate(7479%) hue-rotate(300deg) brightness(98%) contrast(104%);
+}
+
+input[type="radio"]:checked + .meme .meme__icon {
+  transform: rotate(135deg);
+}
+
+.meme__image {
+  height: 100%;
+  width: auto;
+}
+
+/*Mobile devices*/
+@media (max-width: 600px) {
+  .container {
+    padding: 0 5vw;
+  }
+
+  .header {
+    padding-top: 2rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+
+  .meme {
+    padding-top: 0.5rem;
+  }
+
+  .meme__image-container {
+    height: auto;
+    width: 0;
+  }
+
+  .meme__title-container {
+    margin-bottom: 0.5rem;
+  }
+
+  .meme__icon {
+    opacity: 1;
+    transform: scale(1);
+    width: 0.6rem;
+    height: 0.6rem;
+    filter: invert(52%) sepia(25%) saturate(4155%) hue-rotate(159deg) brightness(91%) contrast(101%);
+  }
+
+  .meme__title {
+    font-size: 0.8rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 85%;
+  }
+
+  input[type="radio"]:checked + .meme .meme__image-container {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .meme__image {
+    width: 90%;
+    height: auto;
+  }
+}
+
+/*Tablet devices*/
+@media (min-width: 600px) and (max-width: 992px) {
+  .container {
+    padding: 0 10vw;
+  }
+
+  .header {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .title {
+    font-size: 2.1rem;
+    line-height: 2.1rem;
+  }
+
+  .meme {
+    padding-top: 0.7rem;
+  }
+
+  .meme__title-container {
+    margin-bottom: 0.7rem;
+  }
+
+  .meme__title {
+    font-size: 1.2rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 85%;
+  }
+
+  .meme__icon {
+    opacity: 1;
+    transform: scale(1);
+    width: 1rem;
+    height: 1rem;
+    filter: invert(52%) sepia(25%) saturate(4155%) hue-rotate(159deg) brightness(91%) contrast(101%);
+  }
+
+  input[type="radio"]:checked + .meme .meme__image-container {
+    height: 35vh;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/*Desktop devices*/
+@media (min-width: 992px) {
+  html {
+    overflow-y: scroll;
+  }
+
+  .container {
+    padding: 0 15vw;
+  }
+
+  .header {
+    padding: 1rem 0;
+  }
+
+  .title {
+    font-size: 3rem;
+    line-height: 3rem;
+  }
+
+  .meme {
+    padding-top: 1rem;
+  }
+
+  input[type="radio"] + .meme {
+    cursor: pointer;
+  }
+
+  .meme__title-container {
+    margin-bottom: 1rem;
+  }
+
+  .meme__icon {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .meme__title {
+    font-size: 1.4rem;
+  }
+
+  .accordion:hover .meme__title {
+    filter: invert(0%) sepia(5%) saturate(7479%) hue-rotate(300deg) brightness(98%) contrast(104%);
+  }
+
+  .accordion:hover .meme__icon {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  input[type="radio"]:checked + .meme .meme__image-container,
+  .meme:hover .meme__image-container {
+    height: 40vh;
+    margin-bottom: 1rem;
+  }
+
+  .meme:hover .meme__image-container {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .meme:hover .meme__icon {
+    transform: rotate(135deg);
+  }
+
+  .meme:active .meme__title,
+  .meme:active .meme__icon {
+    filter: invert(52%) sepia(25%) saturate(4155%) hue-rotate(159deg) brightness(91%) contrast(101%);
+  }
+
+  .meme:active {
+    opacity: 0.5;
+  }
+
+  input[type="radio"]:checked + .meme:active {
+    opacity: 1;
+  }
+
+  .meme:active {
+    cursor: grabbing !important;
+  }
+
+  input[type="radio"]:checked + .meme:active {
+    cursor: pointer !important;
+  }
+}

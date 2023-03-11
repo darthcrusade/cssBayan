@@ -179,6 +179,10 @@ input[type="radio"]:checked + .meme .meme__icon {
 
 /*Desktop devices*/
 @media (min-width: 992px) {
+  html {
+    overflow-y: scroll;
+  }
+
   .container {
     padding: 0 15vw;
   }

@@ -2,3 +2,96 @@ body {
   background-color: #f5f5eb;
   font-family: "Helvetica Neue", serif;
 }
+
+.header,
+.accordion__item-container {
+  border-bottom: 0.15rem solid #dbe0e4;
+}
+
+.meme {
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+.title {
+  font-weight: 600;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + .meme {
+  display: block;
+}
+
+.meme__image-container {
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.5s ease;
+  height: 0;
+}
+
+.meme__title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meme__icon {
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.5s ease;
+}
+
+.meme__title {
+  filter: invert(52%) sepia(25%) saturate(4155%) hue-rotate(159deg) brightness(91%) contrast(101%);
+  transition: all 0.5s ease;
+}
+
+.accordion:hover .meme__title {
+  filter: invert(0%) sepia(5%) saturate(7479%) hue-rotate(300deg) brightness(98%) contrast(104%);
+}
+
+.accordion:hover .meme__icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+input[type="radio"]:checked + .meme .meme__image-container,
+.meme:hover .meme__image-container {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.meme:active .meme__title,
+.meme:active .meme__icon {
+  filter: invert(52%) sepia(25%) saturate(4155%) hue-rotate(159deg) brightness(91%) contrast(101%);
+}
+
+.meme:active {
+  opacity: 0.5;
+}
+
+input[type="radio"]:checked + .meme:active {
+  opacity: 1;
+}
+
+input[type="radio"]:checked + .meme .meme__title,
+input[type="radio"]:checked + .meme .meme__icon {
+  filter: invert(0%) sepia(5%) saturate(7479%) hue-rotate(300deg) brightness(98%) contrast(104%);
+}
+
+input[type="radio"]:checked + .meme .meme__icon,
+.meme:hover .meme__icon {
+  transform: rotate(135deg);
+}
+
+.meme__image {
+  height: 100%;
+  width: auto;
+}
+
+
